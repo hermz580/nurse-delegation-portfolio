@@ -85,6 +85,33 @@ function AppContent() {
         userRole={user?.role === 'caregiver' ? 'caregiver' : user?.role === 'provider' ? 'provider' : user?.role === 'admin' ? 'admin' : undefined}
       />
 
+      <Box
+        component="a"
+        href="https://harpstarunlimited.com/apps#projects"
+        sx={{
+          position: 'fixed',
+          right: { xs: 12, md: 20 },
+          bottom: { xs: 12, md: 20 },
+          zIndex: 2000,
+          px: 2,
+          py: 1.1,
+          borderRadius: '999px',
+          bgcolor: 'rgba(10, 10, 11, 0.92)',
+          color: '#f3cf65',
+          border: '1px solid rgba(243, 207, 101, 0.55)',
+          textDecoration: 'none',
+          fontSize: '0.78rem',
+          fontWeight: 700,
+          letterSpacing: '0.04em',
+          boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
+          backdropFilter: 'blur(10px)',
+          '&:hover': { bgcolor: '#f3cf65', color: '#0a0a0b' },
+          '&:focus-visible': { outline: '2px solid #10e7c2', outlineOffset: 3 },
+        }}
+      >
+        ← Back to HarpStar
+      </Box>
+
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />

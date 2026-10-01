@@ -2,7 +2,7 @@
 
 A portfolio demonstration of a searchable nurse-delegation provider directory, interactive service map, role-based workflows, and administration tools.
 
-**[View the live demo](https://hermz580.github.io/nurse-delegation-portfolio/)**
+**[View the live demo on HarpStar](https://harpstarunlimited.com/nurse-delegation/)**
 
 | Landing experience | Provider map | Dashboard concept |
 |---|---|---|

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nurse Delegation Network Training Modules</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      .gradient-text {
+        background-image: linear-gradient(to right, #3B82F6, #22d3ee);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0a0a0b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Floating Particles Background -->
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="absolute top-1/4 left-1/4 size-96 bg-primary/10 rounded-full blur-3xl animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute bottom-1/4 right-1/4 size-96 bg-[#22d3ee]/10 rounded-full blur-3xl animate-[spin_25s_linear_infinite_reverse]"></div>
+</div>
+<div class="layout-container flex h-full grow flex-col z-10">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-4 py-4 backdrop-blur-sm bg-black/20 rounded-xl">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[#d4d4d8] text-lg font-bold leading-tight tracking-[-0.015em]">Nurse Delegation Network</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<div class="hidden md:flex items-center gap-6 lg:gap-9">
+<a class="text-[#d4d4d8] hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Training Modules</a>
+<a class="text-[#d4d4d8] hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Resources</a>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/50" data-alt="User profile avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4kPc1F6mix5342QuDYghlni1w7wIQQPUdXBA8vmje-GN1L-LpXeM6UHRezCWPS-mglvunERHDowxczdY_mBaVaqFUtmiO-PJgZFSnK1YVb0yvjs033ogPrvgji8NZIcfBeVLMR6N5bCN-fSLTCZsrHPQ61h8w5lpI5OtzJExeRofbBJCQ8IU2qFRl5EUSYYQapW1qxrBkqXHgRdK4agghP7nrOa-VmCFbQExPa0Md_rKIKNYT9R_xrEossiFTELpwuKZt3zqZ8P5C");'></div>
+</div>
+</header>
+<main class="mt-12 px-4">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-4 py-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl md:text-5xl font-black tracking-tighter gradient-text">Training Modules</h1>
+<p class="text-[#d4d4d8]/70 text-base font-normal leading-normal">Complete your required training for nurse delegation services.</p>
+</div>
+</div>
+<!-- SearchBar and Filters -->
+<div class="flex flex-col md:flex-row gap-4 py-6">
+<div class="flex-grow">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#d4d4d8]/70 flex border border-r-0 border-white/10 bg-black/20 backdrop-blur-sm items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#d4d4d8] focus:outline-0 focus:ring-2 focus:ring-primary border-white/10 bg-black/20 backdrop-blur-sm h-full placeholder:text-[#d4d4d8]/50 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search modules..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-3">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-white/10 bg-black/20 backdrop-blur-sm px-4">
+<p class="text-[#d4d4d8] text-sm font-medium leading-normal">All</p>
+<span class="material-symbols-outlined text-[#d4d4d8]/70">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-white/10 bg-black/20 backdrop-blur-sm px-4">
+<p class="text-[#d4d4d8] text-sm font-medium leading-normal">In Progress</p>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-white/10 bg-black/20 backdrop-blur-sm px-4">
+<p class="text-[#d4d4d8] text-sm font-medium leading-normal">Completed</p>
+</button>
+</div>
+</div>
+<!-- ImageGrid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-4">
+<!-- Module Card 1: In Progress -->
+<div class="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm p-3 transition-all hover:border-primary/50 hover:scale-[1.02] cursor-pointer">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Nurse assisting elderly patient" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy9zw9ZzDOMFxEZR98IT-XSKMrAlEz1dTcUyAWIuvi273UUZd1hsFoXcw58yY-3NfO7yY4rgnyhhJ-vYG4_6_SothaNz8uKBJ3h3PLYk9F33du2D7zT0ElXm2UUpvlY1IX2Ys4UvziUDiHjbPvHKUnNNGr-RkoJg8Q9cDK86Swh43pLKLPpQBTuRrTLxj4EmhAKVL-LoJxcH6suiEVjv1WCsW-eSdPzf6nxqaExshFPK3A7or7Z0sK5RPO1yX59DPD98mQq26hcPtl");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-base font-semibold leading-normal text-[#d4d4d8] gradient-text">Module 1: Principles of Nurse Delegation</p>
+<p class="text-[#d4d4d8]/70 text-sm font-normal leading-normal">Est. 30 min</p>
+<div class="w-full bg-white/10 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+</div>
+<button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-semibold py-2 rounded-lg text-sm transition-colors">Continue</button>
+</div>
+</div>
+<!-- Module Card 2: Not Started -->
+<div class="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm p-3 transition-all hover:border-primary/50 hover:scale-[1.02] cursor-pointer">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Medical professional examining patient chart" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2EvG3N1I28z3fjZ2eJKYj65VF9GqNrj13z1S2Ars_FeWneRaVq-TJm6wBykb3d0lzcB3dHLVrYBjwwr8zumIK21syXLqjIwy7-MTv1xK7nevZmdBwYTuK40o2kVjkoZI-v5_3OKWwmb5NoVRn3RiAFJ-14TL8KFx0D0hdmm8MugRYeavpWHm2zUE60otGvp7Mz5SWbclziG8UzxU8-0NEWIG4zJb63-SoQXkfk_vky-BvfOE4MdhKa4azsz_KZY_RjHaL1ZL66qNX");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-base font-semibold leading-normal text-[#d4d4d8] gradient-text">Module 2: Patient Assessment</p>
+<p class="text-[#d4d4d8]/70 text-sm font-normal leading-normal">Est. 45 min</p>
+<div class="w-full bg-white/10 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+<button class="w-full text-center bg-primary/20 hover:bg-primary/30 text-primary font-semibold py-2 rounded-lg text-sm transition-colors">Start Module</button>
+</div>
+</div>
+<!-- Module Card 3: Completed -->
+<div class="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm p-3 transition-all hover:border-primary/50 hover:scale-[1.02] cursor-pointer">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Close-up of medication bottles and pills" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAC-xl00GTnCcHb8tt4QcUmTW-uz-MbpKU-j7VLtiRPcEPdD2RZR_5orW3haPmFdaKUIQPblaDdmi5KMoAdlYHtmrWInGeANRuRfB_PYt4M55PWWR9XxcGqiPEy8eBnGT533QYS6S66tVC5inmiK7r1SFJ4FjnErtV20ui8rcqGMym9X78F3nIXrwZX0NfkodgxzKIjpt-FJ9bbner8zeAaXu9Zz987p5MwX7PduxxtHLmdp99tkyd-MiBuAqtw2kvhS8Bs0eSTKtep");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl">replay</span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1 bg-[#10b981]/80 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded-full">
+<span class="material-symbols-outlined !text-base">check_circle</span>
+                                   Completed
+                               </div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-base font-semibold leading-normal text-[#d4d4d8] gradient-text">Module 3: Medication Administration</p>
+<p class="text-[#d4d4d8]/70 text-sm font-normal leading-normal">Est. 60 min</p>
+<div class="w-full bg-white/10 rounded-full h-2">
+<div class="bg-[#10b981] h-2 rounded-full" style="width: 100%"></div>
+</div>
+<button class="w-full text-center bg-white/10 hover:bg-white/20 text-white font-semibold py-2 rounded-lg text-sm transition-colors">View Again</button>
+</div>
+</div>
+<!-- Module Card 4: Not Started -->
+<div class="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm p-3 transition-all hover:border-primary/50 hover:scale-[1.02] cursor-pointer">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Two doctors discussing a case" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5VEUfWWdsR85MV8L7LP07EegSk8S1aozTMq0Kn_7hr5-i_rY-psmsepsMfmlUwaGdii7BaLS6IW6vdMm8W6MOF1ypIevYCOXSt558Uobmbqs-Sv_Du1vUH1_cdGGAW1l0w0c8q6o5JQIy6fGvwFxvwga8dkmRefTJnUhw62Bw76VbnIeSZ9PR0Unft4hOme7L5-e9e8M7OIFX47zhNOs7Io0pleF74V-1cesx30hQEaKWSPdVwPkeBSaTFvRd8SGzdZBZhJ9QNLKX");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-base font-semibold leading-normal text-[#d4d4d8] gradient-text">Module 4: Ethical Considerations</p>
+<p class="text-[#d4d4d8]/70 text-sm font-normal leading-normal">Est. 25 min</p>
+<div class="w-full bg-white/10 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+<button class="w-full text-center bg-primary/20 hover:bg-primary/30 text-primary font-semibold py-2 rounded-lg text-sm transition-colors">Start Module</button>
+</div>
+</div>
+<!-- Module Card 5: In Progress -->
+<div class="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm p-3 transition-all hover:border-primary/50 hover:scale-[1.02] cursor-pointer">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Paramedics responding to an emergency call" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCkN4VwCPVwvKLnpcRCsGHPe3-EpQ4hZF85gjDzszAPrPdZnWLAGKQknQSMmzBqdeeMgk3EqWSNAkd6WvBv9R0bLWBqwOQL2O__g16Yn1Y4dyLX5JVRpCe_sCKlqlw8oP3qLtQBq3OqgvG9jkaSakpBbSQAXaKMZ5twJf8OlxowDywcro5YSZneap4_uW2HzI-G0iUFc9o-YW2_Ff8GOwjiI52WVXtRrs7lgR88ZUz432g1-raRTeP4zj7Uq7HowkOolc-QvdJsHqv");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-base font-semibold leading-normal text-[#d4d4d8] gradient-text">Module 5: Emergency Procedures</p>
+<p class="text-[#d4d4d8]/70 text-sm font-normal leading-normal">Est. 40 min</p>
+<div class="w-full bg-white/10 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 20%"></div>
+</div>
+<button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-semibold py-2 rounded-lg text-sm transition-colors">Continue</button>
+</div>
+</div>
+<!-- Module Card 6: Completed -->
+<div class="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm p-3 transition-all hover:border-primary/50 hover:scale-[1.02] cursor-pointer">
+<div class="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Nurse writing on a clipboard" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAvcL28x7goTO2uB5FqfQdB2ISnhbForOjMOBa8L5UkG94tFiENxnmc38i68H2DAC2EcCKIvxOaOmSCnVsWKoywMi2wbVj6Cgeuogokun2_HxYi70bdzHSeEJk7EjPaAy6inBE5TW7jSTVxniNxWCHWWVcq4gB6xV2aVWJYvuCX8xJM3yDn8vkcBwMKd3LCetA_RwWfqoOPR5mA8IJHxo_bgJ3hpMACVieEfi4JzCMMhyTWWjKcdLnXl7oXbNGJEpGpCHJ9lZOgtBH");'></div>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl">replay</span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1 bg-[#10b981]/80 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded-full">
+<span class="material-symbols-outlined !text-base">check_circle</span>
+                                   Completed
+                               </div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-base font-semibold leading-normal text-[#d4d4d8] gradient-text">Module 6: Documentation and Reporting</p>
+<p class="text-[#d4d4d8]/70 text-sm font-normal leading-normal">Est. 35 min</p>
+<div class="w-full bg-white/10 rounded-full h-2">
+<div class="bg-[#10b981] h-2 rounded-full" style="width: 100%"></div>
+</div>
+<button class="w-full text-center bg-white/10 hover:bg-white/20 text-white font-semibold py-2 rounded-lg text-sm transition-colors">View Again</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+</body></html>

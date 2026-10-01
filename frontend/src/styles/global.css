@@ -1,0 +1,199 @@
+/* Import Poppins font for map markers */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Poppins', 'Outfit', sans-serif;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+  --glass-background: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --canary-yellow: #fbbf24;
+  --canary-yellow-light: #fef3c7;
+  --canary-yellow-dark: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: var(--glass-background);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right,
+      #fbbf24 0%,
+      #fef3c7 50%,
+      #fbbf24 100%);
+  background-size: 1000px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Map Popup Styles */
+.leaflet-popup-content-wrapper {
+  background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%) !important;
+  border: 3px solid #f59e0b !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.4), 0 0 20px rgba(251, 191, 36, 0.2) !important;
+  padding: 8px !important;
+  font-family: var(--font-display) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  font-family: var(--font-display) !important;
+}
+
+.leaflet-popup-tip {
+  background: #fbbf24 !important;
+  border: 2px solid #f59e0b !important;
+}
+
+/* Custom marker hover effect */
+.custom-marker-icon {
+  transition: filter 0.3s ease !important;
+  filter: drop-shadow(0 4px 8px rgba(34, 211, 238, 0.4));
+}
+
+.custom-marker-icon:hover {
+  filter: drop-shadow(0 8px 16px rgba(251, 191, 36, 0.6)) !important;
+}
+
+/* Provider name shimmer in popup */
+.leaflet-popup-content h6,
+.leaflet-popup-content .MuiTypography-subtitle1 {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  background: linear-gradient(90deg,
+      #0f172a 0%,
+      #f59e0b 25%,
+      #fbbf24 50%,
+      #f59e0b 75%,
+      #0f172a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Tooltip Styles - Shows on Hover - Dark Theme */
+.custom-tooltip .leaflet-tooltip {
+  background: linear-gradient(135deg, #0a0f14 0%, #1e293b 100%) !important;
+  border: 2px solid #00ffd5 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 255, 213, 0.3), 0 0 12px rgba(255, 208, 0, 0.2) !important;
+  padding: 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+  opacity: 1 !important;
+  overflow: hidden;
+}
+
+.custom-tooltip .leaflet-tooltip-top:before {
+  border-top-color: #00ffd5 !important;
+}
+
+.custom-tooltip .leaflet-tooltip-bottom:before {
+  border-bottom-color: #00ffd5 !important;
+}
+
+.custom-tooltip .leaflet-tooltip-left:before {
+  border-left-color: #00ffd5 !important;
+}
+
+.custom-tooltip .leaflet-tooltip-right:before {
+  border-right-color: #00ffd5 !important;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

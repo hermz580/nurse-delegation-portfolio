@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nurse Delegation Network - Interactive Map</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .glassmorphic {
+        background: rgba(16, 16, 18, 0.4);backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .shimmer {
+        position: relative;
+        overflow: hidden;
+      }
+      .shimmer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(100deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 80%);
+        animation: shimmer-animation 3s infinite;
+      }
+      @keyframes shimmer-animation {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(50%); }
+      }
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: #22d3ee;
+        opacity: 0;
+        animation: float 20s infinite ease-in-out;
+      }
+      @keyframes float {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        10% { opacity: 0.3; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-100vh) translateX(5vw); opacity: 0; }
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #6ee7b7, #22d3ee);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .pyramid-pin {
+        width: 0;
+        height: 0;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 24px solid;
+        position: relative;
+        transform: rotate(180deg);
+        filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.5));
+      }
+      .pyramid-pin-gradient {
+        border-image: linear-gradient(to top right, #10b981, #3B82F6) 1;
+      }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3B82F6", // Accent Blue
+              "background-light": "#f3f4f6", // A light grey for light mode
+              "background-dark": "#0a0a0b",
+              "accent-green": "#10b981",
+              "accent-green-light": "#6ee7b7",
+              "accent-cyan": "#22d3ee",
+              "text-main": "#d4d4d8",
+              "text-secondary": "#a1a1aa",
+            },
+            fontFamily: {
+              display: ["Poppins", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem", // 12px
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased overflow-hidden">
+<div class="fixed inset-0 pointer-events-none" id="particle-container"></div>
+<div class="flex flex-col h-screen">
+<header class="w-full p-4 z-20">
+<div class="container mx-auto flex justify-between items-center glassmorphic rounded-xl p-3 px-6 border-none">
+<a class="flex items-center gap-3" href="#">
+<svg fill="none" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 12H5V20H19V12H22L12 2Z" fill="url(#logoGradient)"></path>
+<path d="M7 18V12H10V18H7Z" fill="rgba(255,255,255,0.5)"></path>
+<path d="M14 18V12H17V18H14Z" fill="rgba(255,255,255,0.5)"></path>
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="logoGradient" x1="2" x2="22" y1="2" y2="20">
+<stop stop-color="#6ee7b7"></stop>
+<stop offset="1" stop-color="#22d3ee"></stop>
+</linearGradient>
+</defs>
+</svg>
+<span class="text-xl font-bold text-text-main">Nurse Delegation Network</span>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-secondary hover:text-text-main transition-colors" href="#">Services</a>
+<a class="text-text-secondary hover:text-text-main transition-colors" href="#">Providers</a>
+<a class="text-text-secondary hover:text-text-main transition-colors" href="#">Patients</a>
+<a class="text-text-secondary hover:text-text-main transition-colors" href="#">About Us</a>
+</nav>
+<a class="hidden md:block bg-primary/20 text-primary border border-primary px-6 py-2 rounded-lg hover:bg-primary/30 transition-colors" href="#">Login</a>
+<button class="md:hidden text-text-main">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden relative">
+<aside class="absolute lg:relative z-10 w-80 h-[calc(100%-2rem)] lg:h-full top-4 left-4 lg:top-0 lg:left-0 transition-transform duration-300 ease-in-out transform -translate-x-full lg:translate-x-0 bg-transparent lg:bg-transparent">
+<div class="glassmorphic rounded-xl h-full p-6 flex flex-col gap-6">
+<h2 class="text-2xl font-bold gradient-text">Filters</h2>
+<div class="space-y-4">
+<h3 class="font-semibold text-text-main">Service Type</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-2 text-text-secondary">
+<input checked="" class="form-checkbox bg-transparent border-text-secondary/50 rounded text-primary focus:ring-primary/50" type="checkbox"/>
+                                Nurse Delegation
+                            </label>
+<label class="flex items-center gap-2 text-text-secondary">
+<input class="form-checkbox bg-transparent border-text-secondary/50 rounded text-primary focus:ring-primary/50" type="checkbox"/>
+                                Home Care
+                            </label>
+<label class="flex items-center gap-2 text-text-secondary">
+<input class="form-checkbox bg-transparent border-text-secondary/50 rounded text-primary focus:ring-primary/50" type="checkbox"/>
+                                Specialized Nursing
+                            </label>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-semibold text-text-main">Availability</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-2 text-text-secondary">
+<input class="form-radio bg-transparent border-text-secondary/50 text-primary focus:ring-primary/50" name="availability" type="radio"/>
+                                Available Now
+                            </label>
+<label class="flex items-center gap-2 text-text-secondary">
+<input class="form-radio bg-transparent border-text-secondary/50 text-primary focus:ring-primary/50" name="availability" type="radio"/>
+                                Accepting New Patients
+                            </label>
+</div>
+</div>
+<div class="mt-4 flex-1 overflow-y-auto pr-2 space-y-3">
+<h3 class="text-xl font-bold text-text-main mb-2">Providers List</h3>
+<div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+<h4 class="font-semibold text-text-main">Evergreen Health</h4>
+<p class="text-sm text-text-secondary">Seattle, WA</p>
+</div>
+<div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+<h4 class="font-semibold text-text-main">Cascade Medical</h4>
+<p class="text-sm text-text-secondary">Bellevue, WA</p>
+</div>
+<div class="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+<h4 class="font-semibold text-text-main">Puget Sound Nurses</h4>
+<p class="text-sm text-text-secondary">Tacoma, WA</p>
+</div>
+</div>
+</div>
+</aside>
+<button class="lg:hidden absolute top-6 left-4 z-20 p-2 glassmorphic rounded-full">
+<span class="material-symbols-outlined text-text-main">menu</span>
+</button>
+<div class="flex-1 flex flex-col p-4 pl-0 lg:pl-4 relative">
+<div class="relative w-full mb-4 z-10 px-4 lg:px-0">
+<div class="glassmorphic rounded-xl shimmer">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary">search</span>
+<input class="w-full bg-transparent border-none pl-12 pr-4 py-3 text-text-main placeholder-text-secondary focus:ring-0" placeholder="Search for providers or locations..." type="text"/>
+</div>
+</div>
+<div class="absolute top-full mt-2 w-full glassmorphic rounded-xl p-2 hidden">
+<div class="p-2 hover:bg-white/10 rounded-lg cursor-pointer text-text-main">Seattle General Hospital</div>
+<div class="p-2 hover:bg-white/10 rounded-lg cursor-pointer text-text-main">Bellevue Nursing Services</div>
+</div>
+</div>
+<div class="flex-1 bg-gray-800/20 dark:bg-gray-800/50 rounded-xl overflow-hidden relative border border-white/10">
+<img alt="Abstract map of a city street grid at night" class="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoJKg1p43KWnyKNs3uhQTfrmwaV1oiqHeKr1OSK6nQzCDTNZeaHhWl-Sm8sQfZ1lbhvmmk2RZHMN6X6HVRy_kCi2xX5aqsbdxV8Pmj-Bj50zv8OJ3mmF5pI8t_zcWxCeZVu8Fakf1iOXbhMo7rrIXYRdF8buuuFIYFUVFif_DvbKDZrVzN-Gssd2i3MH2-Ww_3p_yZbDS2rbs6F7OPNDiacezV7RY9PgakhG3UmgArZmd3PaDgfOADsquCbh7bK-mYufoq1gqYWGN"/>
+<div class="absolute inset-0 flex items-center justify-center space-x-16 p-10 animate-pulse">
+<div class="w-1/3 h-2/3 bg-white/5 rounded-xl shimmer"></div>
+<div class="w-1/4 h-1/2 bg-white/5 rounded-xl shimmer"></div>
+<div class="w-1/3 h-3/4 bg-white/5 rounded-xl shimmer"></div>
+</div>
+<div class="absolute top-[30%] left-[25%]">
+<div class="pyramid-pin pyramid-pin-gradient"></div>
+</div>
+<div class="absolute top-[60%] left-[65%]">
+<div class="pyramid-pin pyramid-pin-gradient"></div>
+</div>
+<div class="absolute top-[40%] left-[40%] w-80 glassmorphic rounded-xl p-4 transform transition-all hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
+<div class="flex items-start gap-4">
+<div class="mt-1">
+<div class="pyramid-pin pyramid-pin-gradient"></div>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-lg text-text-main">Cascade Medical</h3>
+<p class="text-sm text-text-secondary">123 Main St, Bellevue, WA</p>
+<div class="mt-3 border-t border-white/10 pt-3">
+<p class="text-xs text-text-secondary uppercase font-semibold">Services</p>
+<p class="text-sm text-text-main">Nurse Delegation, Home Care</p>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 text-sm bg-primary text-white py-2 px-3 rounded-lg hover:bg-primary/80 transition-colors">View Profile</button>
+<button class="flex-1 text-sm bg-white/10 text-text-main py-2 px-3 rounded-lg hover:bg-white/20 transition-colors">Contact</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+      // Particle generation
+      const container = document.getElementById('particle-container');
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 5 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+        container.appendChild(particle);
+      }
+    </script>
+
+</body></html>

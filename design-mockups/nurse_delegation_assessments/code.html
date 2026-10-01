@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nurse Delegation Network Assessments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { width: 10px; height: 10px; left: 10%; animation-duration: 20s; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; left: 25%; animation-duration: 30s; animation-delay: -5s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; left: 40%; animation-duration: 18s; animation-delay: -10s; }
+        .particle:nth-child(4) { width: 12px; height: 12px; left: 55%; animation-duration: 28s; animation-delay: -15s; }
+        .particle:nth-child(5) { width: 18px; height: 18px; left: 70%; animation-duration: 22s; animation-delay: -20s; }
+        .particle:nth-child(6) { width: 9px; height: 9px; left: 85%; animation-duration: 35s; animation-delay: -25s; }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .glassmorphism {
+            background: rgba(27, 32, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .shimmer-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(110deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 60%);
+            transform: skewX(-25deg);
+            transition: left 0.8s ease-in-out;
+        }
+
+        .shimmer-bg:hover::before {
+            left: 150%;
+        }
+        
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3B82F6",
+              "background-light": "#f5f7f8",
+              "background-dark": "#0a0a0b",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-dark font-display text-[#d4d4d8]">
+<div class="floating-particles">
+<div class="particle"></div><div class="particle"></div><div class="particle"></div>
+<div class="particle"></div><div class="particle"></div><div class="particle"></div>
+</div>
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1 z-10">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-6 py-4 glassmorphism rounded-lg">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-white">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22H22L12 2Z" fill="url(#pyramid-gradient)"></path><defs><lineargradient gradientunits="userSpaceOnUse" id="pyramid-gradient" x1="12" x2="12" y1="2" y2="22"><stop stop-color="#22d3ee"></stop><stop offset="1" stop-color="#3B82F6"></stop></lineargradient></defs></svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Nurse Delegation Network</h2>
+</div>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-[#d4d4d8] hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-primary font-bold text-sm leading-normal" href="#">Assessments</a>
+<a class="text-[#d4d4d8] hover:text-white transition-colors text-sm font-medium leading-normal" href="#">History</a>
+<a class="text-[#d4d4d8] hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhhN-aiIAzBaWnyRurX-oMmlU077YHwuscNM2LQ6GABjwx_S8WluhleBQIm74MxDjNT73-joOEs7SmGIrzZNoTGv0oj9HCN_Y-CaPqQHfbNjcb5cJD2FthuDIUpT10UZZH5TxBIBV8jRAKC5Pi8VWnspv6CVXpe9Dn7Vlz0PrFjWy5K95_nvxH9nIWCoNToPbGJSxLm-dXhTThOUftyktNczh_GWfTtwG310c8zxpLzzLDM0vopD7MdSjbzZ08MvjLV62oq5YcvV3e");'></div>
+<span class="hidden lg:inline text-white font-medium">Alex Morgan</span>
+</div>
+</header>
+<main class="flex-1 mt-10 px-4">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<h1 class="text-5xl font-black leading-tight tracking-tighter bg-gradient-to-r from-[#22d3ee] to-[#3B82F6] text-transparent bg-clip-text">Assessments</h1>
+<label class="flex flex-col min-w-40 h-12 w-full max-w-sm">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full glassmorphism">
+<div class="text-[#9ca7ba] flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#d4d4d8] focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-[#9ca7ba] px-4 pl-2 text-base font-normal leading-normal" placeholder="Find specific assessments" value=""/>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1: Completed -->
+<div class="p-0.5 rounded-xl bg-gradient-to-br from-white/20 to-white/0">
+<div class="flex flex-col justify-between h-full rounded-xl p-6 glassmorphism shimmer-bg">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Medication Administration Fundamentals</p>
+<span class="inline-flex items-center rounded-full bg-[#10b981]/20 px-3 py-1 text-xs font-medium text-[#6ee7b7]">Passed</span>
+</div>
+<p class="text-[#d4d4d8] text-sm font-normal leading-normal">Score: 92%</p>
+<p class="text-[#9ca7ba] text-sm font-normal leading-normal">Completed: 10/26/2023</p>
+</div>
+<button class="mt-6 flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary/20 text-white hover:bg-primary/40 transition-colors text-sm font-medium leading-normal">
+<span class="truncate">Retake Assessment</span>
+</button>
+</div>
+</div>
+<!-- Card 2: In Progress -->
+<div class="p-0.5 rounded-xl bg-gradient-to-br from-white/20 to-white/0">
+<div class="flex flex-col justify-between h-full rounded-xl p-6 glassmorphism shimmer-bg">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Patient Safety Protocols</p>
+<span class="inline-flex items-center rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-primary">In Progress</span>
+</div>
+<div class="flex items-center gap-2 text-cyan-400">
+<span class="material-symbols-outlined text-base">timer</span>
+<p class="text-sm font-medium leading-normal">24:15 remaining</p>
+</div>
+</div>
+<button class="mt-6 flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary text-white hover:bg-blue-500 transition-colors text-sm font-medium leading-normal">
+<span class="truncate">Continue Assessment</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Not Started -->
+<div class="p-0.5 rounded-xl bg-gradient-to-br from-white/20 to-white/0">
+<div class="flex flex-col justify-between h-full rounded-xl p-6 glassmorphism shimmer-bg">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Diabetes Care Basics</p>
+<span class="inline-flex items-center rounded-full bg-gray-500/20 px-3 py-1 text-xs font-medium text-gray-300">Not Started</span>
+</div>
+<p class="text-[#d4d4d8] text-sm font-normal leading-normal">30 Questions</p>
+<p class="text-[#9ca7ba] text-sm font-normal leading-normal">Estimated Time: ~45 mins</p>
+</div>
+<button class="mt-6 flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary text-white hover:bg-blue-500 transition-colors text-sm font-medium leading-normal">
+<span class="truncate">Start Assessment</span>
+</button>
+</div>
+</div>
+<!-- Card 4: New Card -->
+<div class="p-0.5 rounded-xl bg-gradient-to-br from-white/20 to-white/0">
+<div class="flex flex-col justify-between h-full rounded-xl p-6 glassmorphism shimmer-bg">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Infection Control Standards</p>
+<span class="inline-flex items-center rounded-full bg-gray-500/20 px-3 py-1 text-xs font-medium text-gray-300">Not Started</span>
+</div>
+<p class="text-[#d4d4d8] text-sm font-normal leading-normal">25 Questions</p>
+<p class="text-[#9ca7ba] text-sm font-normal leading-normal">Estimated Time: ~30 mins</p>
+</div>
+<button class="mt-6 flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary text-white hover:bg-blue-500 transition-colors text-sm font-medium leading-normal">
+<span class="truncate">Start Assessment</span>
+</button>
+</div>
+</div>
+<!-- Card 5: Completed -->
+<div class="p-0.5 rounded-xl bg-gradient-to-br from-white/20 to-white/0">
+<div class="flex flex-col justify-between h-full rounded-xl p-6 glassmorphism shimmer-bg">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Wound Care Management</p>
+<span class="inline-flex items-center rounded-full bg-[#10b981]/20 px-3 py-1 text-xs font-medium text-[#6ee7b7]">Passed</span>
+</div>
+<p class="text-[#d4d4d8] text-sm font-normal leading-normal">Score: 88%</p>
+<p class="text-[#9ca7ba] text-sm font-normal leading-normal">Completed: 09/15/2023</p>
+</div>
+<button class="mt-6 flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary/20 text-white hover:bg-primary/40 transition-colors text-sm font-medium leading-normal">
+<span class="truncate">Review Results</span>
+</button>
+</div>
+</div>
+<!-- Card 6: Failed -->
+<div class="p-0.5 rounded-xl bg-gradient-to-br from-white/20 to-white/0">
+<div class="flex flex-col justify-between h-full rounded-xl p-6 glassmorphism shimmer-bg">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Ethics in Nursing Practice</p>
+<span class="inline-flex items-center rounded-full bg-red-500/20 px-3 py-1 text-xs font-medium text-red-400">Failed</span>
+</div>
+<p class="text-[#d4d4d8] text-sm font-normal leading-normal">Score: 65%</p>
+<p class="text-[#9ca7ba] text-sm font-normal leading-normal">Completed: 08/21/2023</p>
+</div>
+<button class="mt-6 flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary text-white hover:bg-blue-500 transition-colors text-sm font-medium leading-normal">
+<span class="truncate">Retake Assessment</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+</body></html>
